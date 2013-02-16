@@ -6,20 +6,14 @@ cb.setOAuthAccessTokenSecret("PBIOjN90PtTzdOJsj8Ci3kRcLkTSkIynrOmS6oMqCzA");
 
 Twitter twitter = new TwitterFactory(cb.build()).getInstance();
 Query query = new Query("#happy");
-query.setCount(100);
+query.setCount(10);
 
 try {
   QueryResult result = twitter.search(query);
-  ArrayList tweets = (ArrayList) result.getTweets();
-
-  for (int i = 0; i < tweets.size(); i++) {
-    Tweet t = (Tweet) tweets.get(i);
-    String user = t.getFromUser();
-    String msg = t.getText();
-    Date d = t.getCreatedAt();
-    println("Tweet by " + user + " at " + d + ": " + msg);
-  };
+  println("Tweet by " + result.getCount());
 }
 catch (TwitterException te) {
   println("Couldn't connect: " + te);
 };
+
+delay(5000);
