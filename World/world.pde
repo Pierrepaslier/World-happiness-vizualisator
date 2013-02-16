@@ -10,7 +10,7 @@ query.setCount(10);
 
 try {
   QueryResult result = twitter.search(query);
-  println("Tweet by " + result.getCount());
+  println("Number of tweets: " + result.getCount());
 }
 catch (TwitterException te) {
   println("Couldn't connect: " + te);
